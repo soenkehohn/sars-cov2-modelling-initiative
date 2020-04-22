@@ -41,7 +41,7 @@ rho= 0.03 # recovery rate for infected individuals (constrained by Chinese and B
 sigma= 0.0 # rate of recovered individuals that become susceptible for reinfection
 
 # initialization
-tmax=80
+tmax=90
 dt=1.0
 
 S=np.zeros(tmax)
@@ -63,6 +63,8 @@ for i in range(tmax-1):
         if i>67:
             c=1.7/P
             delta=0.0025
+            if i>74:
+                c=1.0/P
             
     # susceptible fraction of population
     #dSdt=theta*S[i]+b*S[i]-d*S[i] - a*c*S[i]*I[i] + sigma*R[i]
